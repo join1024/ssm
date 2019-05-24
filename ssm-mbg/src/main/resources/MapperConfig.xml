@@ -1,7 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <properties>
+        <property name="dialect" value="mysql" />
+        <property name="pageSqlId" value=".*WithRowbounds$" />
+    </properties>
+
+    <!-- 配置mybatis的缓存，延迟加载等等一系列属性 -->
+    <settings>
+        <!-- 全局映射器启用缓存 -->
+        <setting name="cacheEnabled" value="true" />
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <plugins>
+        <plugin interceptor="com.nongfadai.lambda.mybatis.locker.interceptor.OptimisticLocker"></plugin>
+        <plugin interceptor="com.nongfadai.lambda.service.common.interceptor.DeleteByExampleInterceptor"></plugin>
+        <plugin interceptor="com.nongfadai.lambda.service.common.interceptor.DataFilterMybatisInterceptor"></plugin>
+        <!-- PageHelper -->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <property name="rowBoundsWithCount" value="true"/>
+            <property name="reasonable" value="true"/>
+            <property name="dialet" value="mysql"/>
+        </plugin>
+    </plugins>
 
 </configuration>
