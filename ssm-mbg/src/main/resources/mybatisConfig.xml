@@ -16,9 +16,6 @@
     </settings>
 
     <plugins>
-        <plugin interceptor="com.nongfadai.lambda.mybatis.locker.interceptor.OptimisticLocker"></plugin>
-        <plugin interceptor="com.nongfadai.lambda.service.common.interceptor.DeleteByExampleInterceptor"></plugin>
-        <plugin interceptor="com.nongfadai.lambda.service.common.interceptor.DataFilterMybatisInterceptor"></plugin>
         <!-- PageHelper -->
         <plugin interceptor="com.github.pagehelper.PageInterceptor">
             <property name="rowBoundsWithCount" value="true"/>

@@ -17,8 +17,8 @@ table自定义property:
     <!-- <classPathEntry location="D:/newWorkspace/Beta/mbgPlugin/target/mbgPlugin-1.0.0.jar" /> -->
     <context id="mysqlTables" > <!-- MyBatis3 -->
         <property name="javaFileEncoding" value="UTF-8"/>
-        <property name="catalog" value="${mybatis.generator.schema}"/>
-        <property name="mbgPackage" value="lambda"/>
+        <!--<property name="catalog" value="${mybatis.generator.schema}"/>-->
+        <!--<property name="mbgPackage" value="test"/>-->
 
         <!-- 由于手写mapper中有update, insert, delete语句，暂时去掉缓存配置 -->
         <!--
@@ -50,25 +50,24 @@ table自定义property:
         </javaTypeResolver>
 
         <!-- 生成model模型，对应的包，存放位置可以指定具体的路径,如/ProjectName/src，也可以使用MAVEN来自动生成 -->
-        <javaModelGenerator targetPackage="com.join.learn.ssm.model" targetProject="MAVEN">
+        <javaModelGenerator targetPackage="com.join.learn.ssm.model.mbg" targetProject="MAVEN">
             <!-- <property name="enableSubPackages" value="true" /> -->
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!--对应的xml mapper文件 -->
-        <sqlMapGenerator targetPackage="com.join.learn.ssm.mapping" targetProject="MAVEN">
+        <sqlMapGenerator targetPackage="com.join.learn.ssm.mapper.mbg" targetProject="MAVEN">
             <property name="overwrite" value="true"/>
         </sqlMapGenerator>
 
         <!-- 对应的dao接口 -->
         <javaClientGenerator type="org.mybatis.generator.codegen.mybatis3.javamapper.JavaMapperGenerator"
-                             targetPackage="com.join.learn.ssm.dao" targetProject="MAVEN">
+                             targetPackage="com.join.learn.ssm.dao.mbg" targetProject="MAVEN">
             <!-- <property name="enableSubPackages" value="true" /> -->
-            <!-- <property name="rootInterface" value="com.nongfadai.lambda.dao.BaseDao"/> -->
         </javaClientGenerator>
 
         <!-- 机构表 -->
-        <table catalog="test" tableName="user">
+        <table tableName="user">
             <!--<property name="javers" value="false"/>-->
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>

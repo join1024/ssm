@@ -1,7 +1,8 @@
 package com.join.learn.ssm.service;
 
-import com.join.learn.ssm.dao.UserMapper;
-import com.join.learn.ssm.model.User;
+import com.join.learn.ssm.dao.UserDao;
+import com.join.learn.ssm.model.mbg.User;
+import com.join.learn.ssm.model.mbg.UserExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.join.learn.ssm.mbg.TestUtils;
@@ -15,7 +16,7 @@ import java.util.List;
 public class UserService {
 
     @Autowired
-    private UserMapper userMapper;
+    private UserDao userDAo;
 
     /**
      * find all users;
@@ -23,7 +24,8 @@ public class UserService {
      */
     public List<User> findAll(){
         TestUtils.test();
-        return userMapper.findAll();
+        //return userDAo.selectByExample(new UserExample());
+        return userDAo.findAll();
     }
 
 }
