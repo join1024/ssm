@@ -3,13 +3,6 @@
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
-<!--
-table自定义property:
-1. javers, 不加则默认为false, false则为不保存, true则系统会用javers自动保存该表的变化，。
-2. javersIgnoreColumns, mbg插件将为这些列加上javers@DiffIgnore, 这样javers将不保存该列的变化，多个列用逗号隔开,
-   javersIncludeColumns, mbg插件将为table中其他的列加上javers@DiffIgnore, 这样javers将只保存这些列的变化，多个列用逗号隔开,
-3. versionLocker, 更新时是否自动使用乐观锁，默认为true, 如不使用乐观锁，则设置为false.
- -->
 
 
 <generatorConfiguration>
@@ -18,7 +11,7 @@ table自定义property:
     <context id="mysqlTables" > <!-- MyBatis3 -->
         <property name="javaFileEncoding" value="UTF-8"/>
         <!--<property name="catalog" value="${mybatis.generator.schema}"/>-->
-        <!--<property name="mbgPackage" value="test"/>-->
+        <!--<property name="mbgPackage" value="ssm"/>-->
 
         <!-- 由于手写mapper中有update, insert, delete语句，暂时去掉缓存配置 -->
         <!--
@@ -66,9 +59,7 @@ table自定义property:
             <!-- <property name="enableSubPackages" value="true" /> -->
         </javaClientGenerator>
 
-        <!-- 机构表 -->
-        <table tableName="user">
-            <!--<property name="javers" value="false"/>-->
+        <table tableName="sys_user">
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
 

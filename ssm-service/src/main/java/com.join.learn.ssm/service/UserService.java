@@ -1,8 +1,9 @@
 package com.join.learn.ssm.service;
 
-import com.join.learn.ssm.dao.UserDao;
-import com.join.learn.ssm.model.mbg.User;
-import com.join.learn.ssm.model.mbg.UserExample;
+import com.join.learn.ssm.dao.SysUserDao;
+import com.join.learn.ssm.model.mbg.SysUser;
+import com.join.learn.ssm.model.mbg.SysUserExample;
+import com.join.learn.ssm.utils.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.join.learn.ssm.mbg.TestUtils;
@@ -16,16 +17,28 @@ import java.util.List;
 public class UserService {
 
     @Autowired
-    private UserDao userDAo;
+    private SysUserDao sysUserDAo;
 
     /**
      * find all users;
      * @return
      */
-    public List<User> findAll(){
+    public List<SysUser> findAll(){
         TestUtils.test();
-        //return userDAo.selectByExample(new UserExample());
-        return userDAo.findAll();
+        //return sysUserDAo.selectByExample(new UserExample());
+        return sysUserDAo.findAll();
     }
+
+    /**
+     * 根据账号查询
+     * @param account
+     * @return
+     */
+    public SysUser findByAccount(String account){
+        SysUserExample example=new SysUserExample();
+        example.createCriteria().andAccountEqualTo(account);
+        return CommonUtils.getFirstElement(sysUserDAo.selectByExample(example));
+    }
+
 
 }

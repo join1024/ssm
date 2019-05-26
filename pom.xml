@@ -50,7 +50,7 @@
                 <config.server.host>10.1.60.59</config.server.host>
                 <mybatis.generator.jdbcDriver>com.mysql.jdbc.Driver</mybatis.generator.jdbcDriver>
                 <mybatis.generator.jdbcURL>jdbc:mysql://localhost:3306/</mybatis.generator.jdbcURL>
-                <mybatis.generator.schema>test</mybatis.generator.schema>
+                <mybatis.generator.schema>ssm</mybatis.generator.schema>
                 <mybatis.generator.jdbcUserId>root</mybatis.generator.jdbcUserId>
                 <mybatis.generator.jdbcPassword>123456</mybatis.generator.jdbcPassword>
                 <testConfig.fileName>application-test.properties</testConfig.fileName>

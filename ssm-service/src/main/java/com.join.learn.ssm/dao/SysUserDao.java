@@ -1,12 +1,11 @@
 package com.join.learn.ssm.dao;
 
-import com.join.learn.ssm.dao.mbg.UserMapper;
-import com.join.learn.ssm.model.mbg.User;
-import org.apache.ibatis.annotations.Mapper;
+import com.join.learn.ssm.dao.mbg.SysUserMapper;
+import com.join.learn.ssm.model.mbg.SysUser;
 
 import java.util.List;
 
-public interface UserDao extends UserMapper {
+public interface SysUserDao extends SysUserMapper{
     /**
      * find all users from database
      * @return
@@ -15,5 +14,5 @@ public interface UserDao extends UserMapper {
 //    @Results({
 //        @Result(property = "userName", column = "user_name")
 //    })
-    List<User> findAll();
+    List<SysUser> findAll();
 }

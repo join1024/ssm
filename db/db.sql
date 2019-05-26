@@ -1,5 +1,6 @@
+CREATE SCHEMA `ssm` DEFAULT CHARACTER SET utf8mb4 ;
 
-CREATE TABLE `test`.`user`(
+CREATE TABLE `ssm`.`sys_user`(
   `id` INT NOT NULL AUTO_INCREMENT,
   `user_name` VARCHAR(50) NOT NULL,
   `account` VARCHAR(50) NOT NULL,
